@@ -1,13 +1,23 @@
 import React, { Component } from "react";
 import Cards from "./Cards";
 import SearchTerm from "./SearchTerm";
-import { robots } from "./robots";
+// import { robots } from "./robots";
 
 class App extends Component {
   state = {
-    robots: robots,
+    robots: [],
     term: ""
   };
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(response => response.json())
+      .then(users =>
+        this.setState({
+          robots: users
+        })
+      );
+  }
 
   searchHandler = e => {
     this.setState({
