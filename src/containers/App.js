@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Cards from "../components/Cards";
 import Scroll from "../components/Scroll";
 import SearchTerm from "../components/SearchTerm";
+import ErrorBoundary from "../components/ErrorBoundary";
 // import { robots } from "./robots";
 
 class App extends Component {
@@ -42,7 +43,9 @@ class App extends Component {
           </h1>
           <SearchTerm term={term} searchRobots={this.searchHandler} />
           <Scroll>
-            <Cards robots={filteredRobots} />
+            <ErrorBoundary>
+              <Cards robots={filteredRobots} />
+            </ErrorBoundary>
           </Scroll>
         </div>
       );
