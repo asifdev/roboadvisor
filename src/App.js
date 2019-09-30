@@ -22,7 +22,9 @@ class App extends Component {
 
     return (
       <div className="tc">
-        <h1>RoboAdvisors</h1>
+        <h1 className="f1" style={{ color: "#0ccac4" }}>
+          RoboAdvisors
+        </h1>
         <SearchTerm term={this.state.term} searchRobots={this.searchHandler} />
         <Cards robots={filteredRobots} />
       </div>
