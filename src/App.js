@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Cards from "./Cards";
+import Scroll from "./Scroll";
 import SearchTerm from "./SearchTerm";
 // import { robots } from "./robots";
 
@@ -36,7 +37,9 @@ class App extends Component {
           RoboAdvisors
         </h1>
         <SearchTerm term={this.state.term} searchRobots={this.searchHandler} />
-        <Cards robots={filteredRobots} />
+        <Scroll>
+          <Cards robots={filteredRobots} />
+        </Scroll>
       </div>
     );
   }
